@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+<style>html,body{background:#0c0e11;margin:0}</style>
+<script>try{var t=JSON.parse(localStorage.getItem('homescreen-settings')||'null');if(t&&/^[a-z]+$/.test(t.theme)){document.documentElement.setAttribute('data-theme',t.theme)}}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <ul id="gauges" class="gauges" role="list" aria-label="System resources"></ul>
+  <ul id="actions" class="actions" role="list" aria-label="Controls"></ul>
+</header>
+<main class="board">
+  <section class="col" id="col-apps" aria-labelledby="h-apps">
+    <h2 id="h-apps">Apps</h2>
+    <ul class="list" role="list"></ul>
+  </section>
+  <section class="col hug" id="col-inputs" aria-labelledby="h-inputs">
+    <h2 id="h-inputs">Inputs</h2>
+    <p class="group-label">HDMI</p>
+    <ul class="list" role="list"></ul>
+  </section>
+  <section class="col hug" id="col-settings" aria-labelledby="h-settings">
+    <h2 id="h-settings">Settings</h2>
+    <ul class="list" role="list"></ul>
+  </section>
+</main>
+<div id="tray" class="scrim" hidden>
+  <div class="tray-panel">
+    <h2 id="tray-title">Running apps</h2>
+    <ul id="tray-list" class="tray-list" role="list" aria-labelledby="tray-title"></ul>
+    <p class="hint">Select an app to close it. Press Red or Back to return.</p>
+  </div>
+</div>
+<div id="config" class="scrim" hidden>
+  <div class="cfg-panel">
+    <h2 id="cfg-title">Customise</h2>
+    <p id="cfg-hint" class="hint"></p>
+    <ul id="cfg-list" class="cfg-list" role="list" aria-labelledby="cfg-title"></ul>
+  </div>
+</div>
+<div id="menu" class="menu-layer" hidden>
+  <div class="menu">
+    <ul id="menu-list" role="list" aria-label="Power"></ul>
+  </div>
+</div>
+<footer class="keys" aria-hidden="true">
+  <span class="key key-red">Running apps</span>
+  <span class="key key-green">Themes</span>
+  <span class="key-note">Press OK to open</span>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="config.js"></script>
+<script src="icons.js"></script>
+<script src="icons95.js"></script>
+<script src="luna.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

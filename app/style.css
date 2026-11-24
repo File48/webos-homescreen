@@ -1,0 +1,1233 @@
+/* 1rem = 10px at 1080p; everything scales with the viewport height. */
+
+/* Each theme loads only its own typeface; Classic uses the TV's system font and loads none. */
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/bricolage-grotesque-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/bricolage-grotesque-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/bricolage-grotesque-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 800; font-style: normal; font-display: swap; src: url("fonts/bricolage-grotesque-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/atkinson-hyperlegible-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/atkinson-hyperlegible-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Space Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/space-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Space Mono"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/space-mono-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "VT323"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/vt323-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Syne"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/syne-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Syne"; font-weight: 800; font-style: normal; font-display: swap; src: url("fonts/syne-latin-800-normal.woff2") format("woff2"); }
+
+/* ---------- themes ----------
+   bg: page, panel: the three columns, tile: idle tiles and buttons' resting surface, sel: the row you left behind,
+   raise: menu and toast, focus/focus-ink: the row you are on, ink: text on the pastel tiles,
+   ring/track/hot: the gauges, scrim: behind the tray and customise panels, p1-p6: pastel tiles. */
+/* Classic: the original flat look. No panels, small corners, grey tiles, inverted highlight, system font. */
+:root,
+:root[data-theme="classic"] {
+  --font: "LG Smart UI", "LG Smart UI Latin", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bg: #0c0e11;
+  --panel: #14171b;
+  --tile: #14171b;
+  --sel: #1b1f25;
+  --raise: #262c34;
+  --text: #c9ced4;
+  --strong: #eef1f4;
+  --dim: #7b848d;
+  --focus: #eef1f4;
+  --focus-ink: #0c0e11;
+  --ink: #eef1f4;
+  --ring: #c9ced4;
+  --track: #232830;
+  --hot: #d9a35b;
+  --scrim: #0c0e11;
+  --p1: #2a3038; --p2: #2a3038; --p3: #2a3038; --p4: #2a3038; --p5: #2a3038; --p6: #2a3038;
+}
+
+:root[data-theme="dusk"] {
+  --font: "Bricolage Grotesque", system-ui, sans-serif;
+  --bg: #1e1b2e;
+  --panel: #2a2640;
+  --tile: #332e50;
+  --sel: #454069;
+  --raise: #3a3558;
+  --text: #f3f0fa;
+  --strong: #ffffff;
+  --dim: #b9b3d0;
+  --focus: #ffc857;
+  --focus-ink: #2b2140;
+  --ink: #2b2140;
+  --ring: #8fe3c8;
+  --track: #3d3860;
+  --hot: #ff8f7a;
+  --scrim: rgba(30, 27, 46, 0.95);
+  --p1: #c9b8ff; --p2: #ffc9a8; --p3: #a8d8ff; --p4: #f2dfa6; --p5: #a8ecd2; --p6: #ffb8cf;
+}
+
+:root[data-theme="harbour"] {
+  --font: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --bg: #0f1f2b;
+  --panel: #17303f;
+  --tile: #1f3d4f;
+  --sel: #2c5268;
+  --raise: #24465a;
+  --text: #eef6f9;
+  --strong: #ffffff;
+  --dim: #a8c1cc;
+  --focus: #7fd6c2;
+  --focus-ink: #0f2630;
+  --ink: #0f2630;
+  --ring: #ffd27a;
+  --track: #2a4a5c;
+  --hot: #ff8f7a;
+  --scrim: rgba(15, 31, 43, 0.95);
+  --p1: #9ed1f0; --p2: #f6c8a8; --p3: #b8e3c9; --p4: #f1dfa0; --p5: #c8c3f2; --p6: #f4b9cc;
+}
+
+:root[data-theme="woodland"] {
+  --font: "Bricolage Grotesque", system-ui, sans-serif;
+  --bg: #17221b;
+  --panel: #223229;
+  --tile: #2b3f33;
+  --sel: #3a5543;
+  --raise: #30463a;
+  --text: #f1f3ea;
+  --strong: #ffffff;
+  --dim: #aebfaf;
+  --focus: #f0d98a;
+  --focus-ink: #1d2a21;
+  --ink: #1d2a21;
+  --ring: #bfe39a;
+  --track: #34493b;
+  --hot: #f09a7e;
+  --scrim: rgba(23, 34, 27, 0.95);
+  --p1: #c7e3a8; --p2: #f0d98a; --p3: #a9d6c8; --p4: #e8c3a4; --p5: #c6c0e8; --p6: #efb8c4;
+}
+
+/* Poster: cobalt, yellow, white and very large type. */
+:root[data-theme="poster"] {
+  --font: "Syne", system-ui, sans-serif;
+  --bg: #2330e8;
+  --panel: #1a25c4;
+  --tile: #1a25c4;
+  --sel: #3b49ff;
+  --raise: #ffffff;
+  --text: #ffffff;
+  --strong: #ffffff;
+  --dim: #b9c0ff;
+  --focus: #ffe14d;
+  --focus-ink: #10167a;
+  --ink: #10167a;
+  --ring: #ffe14d;
+  --track: #4b58ff;
+  --hot: #ff6a3d;
+  --scrim: #1722c2;
+  --p1: #ffffff; --p2: #ffffff; --p3: #ffffff; --p4: #ffffff; --p5: #ffffff; --p6: #ffffff;
+}
+
+/* Satellite: an early-2000s set-top box planner. Navy screen, rows of separate blue cells, a yellow bar on the row you are on. */
+:root[data-theme="satellite"] {
+  --font: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --bg: #081a4a;
+  --panel: #0c2462;
+  --tile: #1d4a9e;
+  --sel: #3a72d4;
+  --raise: #0c2462;
+  --text: #ffffff;
+  --strong: #ffffff;
+  --dim: #a9c3ef;
+  --focus: #ffcf1a;
+  --focus-ink: #0a1a44;
+  --ink: #0a1a44;
+  --ring: #ffcf1a;
+  --track: #24509f;
+  --hot: #e8322b;
+  --scrim: #081a4a;
+  --p1: #ffffff; --p2: #ffffff; --p3: #ffffff; --p4: #ffffff; --p5: #ffffff; --p6: #ffffff;
+}
+
+/* Retro: a stylised 90s desktop. Cream windows, ink outlines, hard shadows, coloured title bars. */
+:root[data-theme="retro"] {
+  --font: "Space Mono", ui-monospace, monospace;
+  --bg: #9a93a8;
+  --panel: #f4e9d6;
+  --tile: #fff8ea;
+  --sel: #e6d6bd;
+  --raise: #f4e9d6;
+  --text: #231c2e;
+  --strong: #231c2e;
+  --dim: #6a6075;
+  --focus: #f59ac4;
+  --focus-ink: #231c2e;
+  --ink: #231c2e;
+  --ring: #f2813c;
+  --track: #dccbb0;
+  --hot: #f2813c;
+  --scrim: #847d92;
+  --p1: #f6a5c8; --p2: #ffd36b; --p3: #b6d56a; --p4: #b9a0dc; --p5: #7cc4ee; --p6: #f7a56e;
+}
+
+/* Desktop: the same 90s windows in a dry palette. Teal desktop, silver windows, navy title bars. */
+:root[data-theme="win95"] {
+  --font: "VT323", ui-monospace, monospace;
+  --bg: #008080;
+  --panel: #c0c0c0;
+  --tile: #d4d4d4;
+  --sel: #a8a8a8;
+  --raise: #c0c0c0;
+  --text: #000000;
+  --strong: #000000;
+  --dim: #3d3d3d;
+  --focus: #000080;
+  --focus-ink: #ffffff;
+  --ink: #000000;
+  --ring: #000080;
+  --track: #9a9a9a;
+  --hot: #c62828;
+  --scrim: #007070;
+  --p1: #ffffff; --p2: #ffffff; --p3: #ffffff; --p4: #ffffff; --p5: #ffffff; --p6: #ffffff;
+}
+
+html {
+  font-size: calc(100vh / 108);
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-weight: 500;
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- columns ---------- */
+.board {
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  gap: 4rem;
+  height: 100vh;
+  padding: 16rem 9.6rem 6.4rem;
+}
+
+.col {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 4rem;
+  background: var(--panel);
+  padding: 3.2rem 2.8rem 0;
+}
+
+.col.hug {
+  align-self: flex-start;
+  padding-bottom: 2.8rem;
+}
+
+/* The apps list scrolls, so its bottom edge fades into the panel. */
+#col-apps::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), var(--panel));
+  pointer-events: none;
+}
+
+.col h2 {
+  margin: 0 0 2.4rem 1.2rem;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--dim);
+}
+
+.col.is-active h2 {
+  color: var(--strong);
+}
+
+.list {
+  position: relative; /* rows measure their offset from here when scrolling */
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.col.hug .list {
+  flex: none;
+  overflow: visible;
+}
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 8.4rem;
+  margin-bottom: 0.8rem;
+  padding: 0 1.6rem;
+  border-radius: 2.6rem;
+  font-size: 3.2rem;
+  line-height: 8.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.row.is-note {
+  display: block;
+  white-space: normal;
+  height: auto;
+  min-height: 8.4rem;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  font-size: 2.6rem;
+  line-height: 1.4;
+  color: var(--dim);
+}
+
+/* The row you left behind in an inactive column stays marked, quietly. */
+.row.is-focus {
+  background: var(--sel);
+  color: var(--strong);
+}
+
+/* The row you are on. */
+.col.is-active .row.is-focus {
+  background: var(--focus);
+  color: var(--focus-ink);
+  font-weight: 700;
+}
+
+.label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* App icon, settings glyph or letter tile, all in the same box. */
+.ico {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 1.8rem;
+  overflow: hidden;
+}
+
+.ico img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ico svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.ico.mono,
+.ico.tint {
+  color: var(--ink);
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.p1 { background: var(--p1); }
+.p2 { background: var(--p2); }
+.p3 { background: var(--p3); }
+.p4 { background: var(--p4); }
+.p5 { background: var(--p5); }
+.p6 { background: var(--p6); }
+
+/* Inputs: a label, then one row of four HDMI tiles. */
+.group-label {
+  margin: 0 0 1.6rem 1.2rem;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--dim);
+}
+
+.list.tiles {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.tile {
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+  height: auto;
+  margin-bottom: 0;
+  padding: 0;
+  aspect-ratio: 1;
+  border-radius: 2.8rem;
+  background: var(--tile);
+  font-size: 4.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tile.is-focus {
+  background: var(--sel);
+}
+
+.col.is-active .tile.is-focus {
+  background: var(--focus);
+}
+
+/* Colour-key legend: hidden unless a theme shows it. */
+.keys { display: none; }
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 4rem;
+  z-index: 5;
+  max-width: 90vw;
+  padding: 1.4rem 3rem;
+  border-radius: 2.4rem;
+  background: var(--raise);
+  color: var(--strong);
+  font-size: 2.6rem;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms linear;
+}
+
+#toast.is-visible {
+  opacity: 1;
+}
+
+/* ---------- top bar: gauges left, controls right ---------- */
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 14.4rem;
+  padding: 4rem 9.6rem 0;
+}
+
+.gauges,
+.actions {
+  display: flex;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gauges { gap: 2rem; }
+
+.gauge {
+  position: relative;
+  width: 7.2rem;
+  height: 7.2rem;
+  color: var(--text);
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+}
+
+.ring .plate { fill: var(--panel); stroke: none; }
+.ring .track { stroke: var(--track); stroke-width: 3.5; }
+
+.ring .arc {
+  stroke: var(--ring);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  transition: stroke-dasharray 400ms linear;
+}
+
+.gauge.is-hot .arc {
+  stroke: var(--hot); /* a gauge above 90% */
+}
+
+.gico {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gico svg {
+  width: 3rem;
+  height: 3rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 2.4rem;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn svg {
+  width: 3.4rem;
+  height: 3.4rem;
+}
+
+.btn.is-open {
+  background: var(--sel);
+  color: var(--strong);
+}
+
+.btn.is-focus {
+  background: var(--focus);
+  color: var(--focus-ink);
+}
+
+/* ---------- full-screen panels: running apps and customise ---------- */
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--scrim);
+}
+
+.tray-panel,
+.cfg-panel {
+  box-sizing: border-box;
+  border-radius: 4.8rem;
+  background: var(--panel);
+}
+
+.tray-panel {
+  width: 110rem;
+  max-width: 100%;
+  padding: 5.6rem 5.6rem 5.2rem;
+}
+
+.tray-panel h2,
+.cfg-panel h2 {
+  margin: 0 0 4rem 0.8rem;
+  font-size: 4.4rem;
+  font-weight: 700;
+  color: var(--strong);
+}
+
+.hint {
+  margin: 4rem 0 0 0.8rem;
+  font-size: 2.6rem;
+  color: var(--dim);
+}
+
+.tray-list {
+  position: relative; /* tiles measure their offset from here when scrolling */
+  display: flex;
+  gap: 2.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.rtile {
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  width: 22rem;
+  height: 26rem;
+  padding: 0 1.6rem;
+  border-radius: 3.6rem;
+  background: var(--tile);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.rtile .ico {
+  width: 11.2rem;
+  height: 11.2rem;
+  border-radius: 3.2rem;
+}
+
+.rtile .ico svg {
+  width: 6rem;
+  height: 6rem;
+}
+
+.rtile .ico.mono {
+  font-size: 5.4rem;
+}
+
+.rlabel {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 2.8rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.rtile.is-focus {
+  background: var(--focus);
+  color: var(--focus-ink);
+  font-weight: 700;
+}
+
+.rtile.is-all {
+  background: transparent;
+  box-shadow: inset 0 0 0 0.4rem var(--track);
+}
+
+.rtile.is-all.is-focus {
+  background: var(--focus);
+  box-shadow: none;
+}
+
+.rempty {
+  padding: 2rem 0.4rem;
+  font-size: 2.8rem;
+  color: var(--dim);
+}
+
+/* ---------- customise panel ---------- */
+.cfg-panel {
+  width: 84rem;
+  max-width: 100%;
+  padding: 4.8rem 4rem 4rem;
+}
+
+.cfg-panel h2 {
+  margin-bottom: 1.2rem;
+}
+
+.cfg-panel .hint {
+  margin: 0 0 3rem 0.8rem;
+}
+
+.cfg-list {
+  position: relative; /* rows measure their offset from here when scrolling */
+  max-height: 70rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.crow {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 8.4rem;
+  margin-bottom: 0.8rem;
+  padding: 0 2rem 0 1.6rem;
+  border-radius: 2.6rem;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.crow.is-focus {
+  background: var(--focus);
+  color: var(--focus-ink);
+  font-weight: 700;
+}
+
+.ctext {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.csub {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.cright {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 2.6rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.cright svg {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.crow.is-off .ico,
+.crow.is-off .ctext {
+  opacity: 0.5;
+}
+
+.swatch {
+  display: flex;
+  flex: none;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 1.8rem;
+  overflow: hidden;
+}
+
+.swatch span {
+  flex: 1;
+}
+
+/* ---------- power menu ---------- */
+.menu-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+}
+
+.menu {
+  position: absolute;
+  top: 13.6rem;
+  right: 9.6rem;
+  box-sizing: border-box;
+  width: 40rem;
+  padding: 1.2rem;
+  border-radius: 3.2rem;
+  background: var(--raise);
+  box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.35);
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mrow {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 8.4rem;
+  padding: 0 2rem;
+  border-radius: 2.4rem;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.mrow svg {
+  flex: none;
+  width: 3.4rem;
+  height: 3.4rem;
+}
+
+.mrow.is-focus {
+  background: var(--focus);
+  color: var(--focus-ink);
+  font-weight: 700;
+}
+
+/* First press of reboot or power off: waiting for the second. */
+.mrow.is-armed {
+  background: var(--hot);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #toast { transition: none; }
+  .ring .arc { transition: none; }
+}
+
+/* On the highlighted row the icon tile can match the highlight colour, so give it a faint edge. */
+.row.is-focus .ico.mono, .row.is-focus .ico.tint { box-shadow: inset 0 0 0 .25rem rgba(0,0,0,.14); }
+
+
+/* ---------- Classic: layout and shape overrides ---------- */
+:root[data-theme="classic"] .board { gap: 6rem; padding: 15rem 8rem 5rem; }
+:root[data-theme="classic"] .col { padding: 0; border-radius: 0; background: transparent; overflow: visible; }
+:root[data-theme="classic"] .col.hug { align-self: stretch; padding-bottom: 0; }
+:root[data-theme="classic"] #col-apps::after { display: none; }
+:root[data-theme="classic"] .col h2 { margin: 0 0 3rem 2.4rem; font-size: 2.6rem; font-weight: 500; color: var(--dim); }
+:root[data-theme="classic"] .col.is-active h2 { color: var(--strong); }
+:root[data-theme="classic"] .group-label { margin: 0 0 1.6rem 0.4rem; font-size: 2.2rem; font-weight: 500; }
+:root[data-theme="classic"] .row { height: 7.2rem; padding: 0 2.4rem; border-radius: 1.2rem; line-height: 7.2rem; }
+:root[data-theme="classic"] .row.is-note { min-height: 7.2rem; }
+:root[data-theme="classic"] .col.is-active .row.is-focus { font-weight: 500; }
+:root[data-theme="classic"] .ico { width: 4.4rem; height: 4.4rem; border-radius: 1rem; }
+:root[data-theme="classic"] .ico svg { width: 3.4rem; height: 3.4rem; }
+:root[data-theme="classic"] .ico.mono { font-size: 2.4rem; font-weight: 600; }
+:root[data-theme="classic"] .ico.tint { background: transparent; }
+:root[data-theme="classic"] .row.is-focus .ico.mono,
+:root[data-theme="classic"] .row.is-focus .ico.tint { box-shadow: none; }
+:root[data-theme="classic"] .col.is-active .row.is-focus .ico.mono { color: var(--strong); }
+:root[data-theme="classic"] .col.is-active .row.is-focus .ico.tint { color: var(--focus-ink); }
+:root[data-theme="classic"] .tile { border-radius: 1.2rem; font-weight: 500; }
+:root[data-theme="classic"] .tile.is-focus { background: #262c34; }
+:root[data-theme="classic"] .col.is-active .tile.is-focus { background: var(--focus); }
+:root[data-theme="classic"] #toast { border-radius: 1.2rem; }
+:root[data-theme="classic"] .bar { align-items: center; height: 12rem; padding: 3rem 8rem 0 10.4rem; }
+:root[data-theme="classic"] .gauges,
+:root[data-theme="classic"] .actions { gap: 2.4rem; }
+:root[data-theme="classic"] .gauge { width: 6.4rem; height: 6.4rem; color: var(--dim); }
+:root[data-theme="classic"] .ring .plate { fill: none; }
+:root[data-theme="classic"] .ring .arc { stroke-linecap: butt; }
+:root[data-theme="classic"] .gico svg { width: 2.8rem; height: 2.8rem; }
+:root[data-theme="classic"] .btn { width: 6.4rem; height: 6.4rem; border-radius: 1.2rem; }
+:root[data-theme="classic"] .btn svg { width: 3.2rem; height: 3.2rem; }
+:root[data-theme="classic"] .btn.is-open { background: #262c34; }
+:root[data-theme="classic"] .tray-panel,
+:root[data-theme="classic"] .cfg-panel { border-radius: 0; background: transparent; }
+:root[data-theme="classic"] .tray-panel { width: 176rem; padding: 4rem; }
+:root[data-theme="classic"] .tray-panel h2,
+:root[data-theme="classic"] .cfg-panel h2 { margin: 0 0 3rem 0.4rem; font-size: 2.6rem; font-weight: 500; color: var(--dim); }
+:root[data-theme="classic"] .cfg-panel h2 { margin-bottom: 1.2rem; }
+:root[data-theme="classic"] .cfg-panel { padding: 4rem; }
+:root[data-theme="classic"] .hint { margin-top: 3rem; margin-left: 0.4rem; }
+:root[data-theme="classic"] .cfg-panel .hint { margin: 0 0 3rem 0.4rem; }
+:root[data-theme="classic"] .tray-list { gap: 2rem; }
+:root[data-theme="classic"] .rtile { gap: 2rem; width: 18rem; height: 20rem; border-radius: 1.6rem; }
+:root[data-theme="classic"] .rtile .ico { width: 8.4rem; height: 8.4rem; border-radius: 1.6rem; }
+:root[data-theme="classic"] .rtile .ico svg { width: 4.4rem; height: 4.4rem; }
+:root[data-theme="classic"] .rtile .ico.mono { font-size: 4rem; }
+:root[data-theme="classic"] .rlabel { font-size: 2.4rem; }
+:root[data-theme="classic"] .rtile.is-focus { font-weight: 500; }
+:root[data-theme="classic"] .rtile.is-focus .ico.mono { color: var(--strong); }
+:root[data-theme="classic"] .rtile.is-all { box-shadow: inset 0 0 0 0.3rem #262c34; }
+:root[data-theme="classic"] .rtile.is-all.is-focus { box-shadow: none; }
+:root[data-theme="classic"] .crow { height: 7.2rem; border-radius: 1.2rem; font-size: 3rem; }
+:root[data-theme="classic"] .crow.is-focus { font-weight: 500; }
+:root[data-theme="classic"] .crow.is-focus .ico.mono { color: var(--strong); }
+:root[data-theme="classic"] .swatch { width: 4.4rem; height: 4.4rem; border-radius: 1rem; }
+:root[data-theme="classic"] .menu { padding: 0.8rem; border-radius: 1.6rem; box-shadow: none; }
+:root[data-theme="classic"] .mrow { height: 7.2rem; border-radius: 1.2rem; }
+:root[data-theme="classic"] .mrow.is-focus { font-weight: 500; }
+:root[data-theme="classic"] .mrow.is-armed { color: var(--focus-ink); }
+:root[data-theme="classic"] .tile { height: auto; padding: 0; line-height: 1; }
+:root[data-theme="classic"] .menu { box-shadow: 0 0 0 0.2rem #333a44; }
+:root[data-theme="classic"] .menu .mrow.is-focus { background: var(--focus); }
+
+
+/* =====================================================================
+   Poster: the type is the interface. Apps become giant words, there are no
+   panels, no soft corners and no icon tiles in the app list.
+   ===================================================================== */
+:root[data-theme="poster"] .board {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 3.6rem 9rem;
+  padding: 15rem 9.6rem 4rem;
+}
+:root[data-theme="poster"] #col-apps { grid-row: 1 / 3; grid-column: 1; }
+:root[data-theme="poster"] #col-inputs { grid-row: 1; grid-column: 2; }
+:root[data-theme="poster"] #col-settings { grid-row: 2; grid-column: 2; }
+:root[data-theme="poster"] .col { padding: 0; border-radius: 0; background: transparent; overflow: visible; }
+:root[data-theme="poster"] .col.hug { align-self: start; padding-bottom: 0; }
+:root[data-theme="poster"] #col-apps::after { height: 11rem; background: linear-gradient(to bottom, rgba(35,48,232,0), #2330e8); }
+:root[data-theme="poster"] .col h2 {
+  align-self: flex-start;
+  margin: 0 0 2.4rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 0.6rem solid var(--track);
+  font-size: 3.4rem;
+  font-weight: 800;
+  color: var(--dim);
+}
+:root[data-theme="poster"] .col.is-active h2 { color: #fff; border-bottom-color: var(--focus); }
+:root[data-theme="poster"] .group-label { margin: 0 0 1.4rem 0; font-size: 2.6rem; font-weight: 700; }
+
+:root[data-theme="poster"] .row { padding: 0 2.4rem; border-radius: 0; font-weight: 700; letter-spacing: -0.01em; }
+:root[data-theme="poster"] .row.is-focus { background: var(--sel); color: #fff; }
+:root[data-theme="poster"] .col.is-active .row.is-focus { background: var(--focus); color: var(--focus-ink); font-weight: 700; }
+
+/* apps: giant words, no icons */
+:root[data-theme="poster"] #col-apps .row { height: 9.4rem; margin-bottom: 0.4rem; line-height: 9.4rem; font-size: 6rem; font-weight: 700; }
+:root[data-theme="poster"] #col-apps .ico { display: none; }
+/* settings: large words with a plain glyph */
+:root[data-theme="poster"] #col-settings .row { height: 7rem; margin-bottom: 0.4rem; line-height: 7rem; font-size: 3.6rem; font-weight: 700; gap: 2rem; }
+:root[data-theme="poster"] .ico { border-radius: 0; }
+:root[data-theme="poster"] .ico.tint { background: transparent; color: currentColor; }
+:root[data-theme="poster"] .ico.mono { background: #fff; color: var(--ink); }
+:root[data-theme="poster"] .row.is-focus .ico.mono,
+:root[data-theme="poster"] .row.is-focus .ico.tint { box-shadow: none; }
+:root[data-theme="poster"] .ico svg { width: 4.2rem; height: 4.2rem; }
+
+/* inputs: four outlined squares with big numerals */
+:root[data-theme="poster"] .list.tiles { gap: 1.6rem; }
+:root[data-theme="poster"] .tile { border-radius: 0; background: transparent; box-shadow: inset 0 0 0 0.5rem #fff; font-size: 7.2rem; font-weight: 800; }
+:root[data-theme="poster"] .tile.is-focus { background: var(--sel); }
+:root[data-theme="poster"] .col.is-active .tile.is-focus { background: var(--focus); color: var(--focus-ink); box-shadow: none; }
+/* the tiles are rows too: keep their wide weight when selected or hovered */
+:root[data-theme="poster"] .tile.is-focus,
+:root[data-theme="poster"] .col.is-active .tile.is-focus { font-weight: 800; }
+
+/* top bar */
+:root[data-theme="poster"] .bar { padding-top: 3.6rem; }
+:root[data-theme="poster"] .gauge { color: #fff; }
+:root[data-theme="poster"] .ring .plate { fill: none; }
+:root[data-theme="poster"] .ring .track { stroke-width: 4.5; }
+:root[data-theme="poster"] .ring .arc { stroke-width: 4.5; stroke-linecap: butt; }
+:root[data-theme="poster"] .btn { border-radius: 0; background: transparent; box-shadow: inset 0 0 0 0.4rem #fff; color: #fff; }
+:root[data-theme="poster"] .btn.is-open { background: #fff; color: var(--focus-ink); }
+:root[data-theme="poster"] .btn.is-focus { background: var(--focus); color: var(--focus-ink); box-shadow: none; }
+:root[data-theme="poster"] #toast { border-radius: 0; background: #fff; color: var(--focus-ink); font-weight: 800; box-shadow: 0.8rem 0.8rem 0 var(--focus-ink); }
+
+/* full-screen panels: plain cobalt with huge titles */
+:root[data-theme="poster"] .tray-panel,
+:root[data-theme="poster"] .cfg-panel { border-radius: 0; background: transparent; }
+:root[data-theme="poster"] .tray-panel { width: 150rem; }
+:root[data-theme="poster"] .tray-panel h2,
+:root[data-theme="poster"] .cfg-panel h2 { margin: 0 0 4rem 0; font-size: 7.2rem; font-weight: 800; letter-spacing: -0.02em; }
+:root[data-theme="poster"] .cfg-panel h2 { margin-bottom: 1.6rem; }
+:root[data-theme="poster"] .hint { font-size: 2.6rem; font-weight: 700; }
+:root[data-theme="poster"] .rtile { border-radius: 0; background: transparent; box-shadow: inset 0 0 0 0.5rem #fff; width: 24rem; height: 28rem; }
+:root[data-theme="poster"] .rtile .ico { width: 11.2rem; height: 11.2rem; border-radius: 0; }
+:root[data-theme="poster"] .rtile.is-focus,
+:root[data-theme="poster"] .rtile.is-all.is-focus { background: var(--focus); color: var(--focus-ink); font-weight: 800; box-shadow: none; }
+:root[data-theme="poster"] .rtile.is-focus .ico.mono { background: var(--focus-ink); color: #fff; }
+:root[data-theme="poster"] .rtile.is-all { box-shadow: inset 0 0 0 0.5rem var(--track); }
+:root[data-theme="poster"] .rlabel { font-size: 3rem; font-weight: 700; }
+:root[data-theme="poster"] .cfg-panel { width: 100rem; }
+:root[data-theme="poster"] .crow { height: 9rem; border-radius: 0; font-size: 4.4rem; font-weight: 800; }
+:root[data-theme="poster"] .crow.is-focus { background: var(--focus); color: var(--focus-ink); font-weight: 800; }
+:root[data-theme="poster"] .crow.is-focus .ico.mono { background: var(--focus-ink); color: #fff; }
+:root[data-theme="poster"] .csub { font-size: 2.2rem; font-weight: 700; }
+:root[data-theme="poster"] .cright { font-size: 2.8rem; font-weight: 800; }
+:root[data-theme="poster"] .swatch { border-radius: 0; box-shadow: 0 0 0 0.3rem #fff; }
+
+/* power menu: a white sheet with a hard shadow */
+:root[data-theme="poster"] .menu { border-radius: 0; width: 46rem; padding: 0; background: #fff; box-shadow: 1.2rem 1.2rem 0 var(--focus-ink); }
+:root[data-theme="poster"] .mrow { height: 9rem; border-radius: 0; padding: 0 3rem; font-size: 4rem; font-weight: 800; color: var(--focus-ink); }
+:root[data-theme="poster"] .mrow.is-focus { background: var(--focus-ink); color: #fff; font-weight: 800; }
+:root[data-theme="poster"] .mrow.is-armed { background: var(--hot); color: #fff; }
+
+
+/* =====================================================================
+   Retro: every column, panel and menu is a 90s window. Title bars carry the
+   column name; the window controls are drawn, not real buttons.
+   ===================================================================== */
+:root[data-theme="retro"] .board, :root[data-theme="win95"] .board { gap: 4.4rem; padding: 15.6rem 9.6rem 6.4rem; }
+:root[data-theme="retro"] .col, :root[data-theme="win95"] .col {
+  padding: 0;
+  border: 0.4rem solid var(--ink);
+  border-radius: 1.2rem;
+  background: var(--panel);
+  box-shadow: 1.1rem 1.1rem 0 var(--ink);
+}
+:root[data-theme="retro"] .col.hug, :root[data-theme="win95"] .col.hug { padding-bottom: 2.4rem; }
+:root[data-theme="retro"] #col-apps::after, :root[data-theme="win95"] #col-apps::after { height: 9rem; background: linear-gradient(to bottom, rgba(244,233,214,0), #f4e9d6); }
+:root[data-theme="retro"] .col h2, :root[data-theme="win95"] .col h2,
+:root[data-theme="retro"] .tray-panel h2, :root[data-theme="win95"] .tray-panel h2,
+:root[data-theme="retro"] .cfg-panel h2, :root[data-theme="win95"] .cfg-panel h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 1.2rem 1.6rem 1.2rem 2.4rem;
+  border-bottom: 0.4rem solid var(--ink);
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+:root[data-theme="retro"] .col h2::after, :root[data-theme="win95"] .col h2::after,
+:root[data-theme="retro"] .tray-panel h2::after, :root[data-theme="win95"] .tray-panel h2::after,
+:root[data-theme="retro"] .cfg-panel h2::after, :root[data-theme="win95"] .cfg-panel h2::after { content: ""; flex: none; width: 11rem; height: 3.4rem; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 34'%3E%3Crect x='1.5' y='1.5' width='107' height='31' rx='5' fill='%23fff8ea' stroke='%23231c2e' stroke-width='3'/%3E%3Cpath d='M37 2v30M73 2v30M11 24h17M84 9l15 16M99 9 84 25' stroke='%23231c2e' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Crect x='47' y='9' width='16' height='15' fill='none' stroke='%23231c2e' stroke-width='3'/%3E%3C/svg%3E") no-repeat center / contain; }
+:root[data-theme="retro"] #col-apps h2, :root[data-theme="win95"] #col-apps h2 { background: #f2813c; }
+:root[data-theme="retro"] #col-inputs h2, :root[data-theme="win95"] #col-inputs h2 { background: #4aa3d8; }
+:root[data-theme="retro"] #col-settings h2, :root[data-theme="win95"] #col-settings h2 { background: #f6c445; }
+:root[data-theme="retro"] .tray-panel h2, :root[data-theme="win95"] .tray-panel h2 { background: #f6a5c8; }
+:root[data-theme="retro"] .cfg-panel h2, :root[data-theme="win95"] .cfg-panel h2 { background: #b9a0dc; }
+:root[data-theme="retro"] .col.is-active h2, :root[data-theme="win95"] .col.is-active h2 { color: var(--ink); }
+:root[data-theme="retro"] .group-label, :root[data-theme="win95"] .group-label { margin: 2rem 0 1.2rem 2.4rem; font-size: 2.2rem; font-weight: 700; color: var(--dim); }
+:root[data-theme="retro"] .list, :root[data-theme="win95"] .list { margin: 2rem 1.4rem 0 2rem; padding: 0 1rem 0 0; }
+:root[data-theme="retro"] .list.tiles, :root[data-theme="win95"] .list.tiles { margin-top: 0; padding: 0 1rem 0.8rem 0; }
+
+/* rows: dashed focus box when you have left a column, a pink sticker where you are */
+:root[data-theme="retro"] .row, :root[data-theme="win95"] .row { height: 7.6rem; line-height: 7rem; padding: 0 1.6rem; border: 0.3rem solid transparent; border-radius: 0.8rem; font-size: 3rem; font-weight: 400; }
+:root[data-theme="retro"] .row.is-focus, :root[data-theme="win95"] .row.is-focus { background: transparent; border: 0.3rem dashed var(--ink); color: var(--ink); }
+:root[data-theme="retro"] .col.is-active .row.is-focus, :root[data-theme="win95"] .col.is-active .row.is-focus { background: var(--focus); border-style: solid; color: var(--ink); font-weight: 700; box-shadow: 0.5rem 0.5rem 0 var(--ink); }
+:root[data-theme="retro"] .ico, :root[data-theme="win95"] .ico { box-sizing: border-box; width: 5rem; height: 5rem; border: 0.3rem solid var(--ink); border-radius: 0.8rem; }
+:root[data-theme="retro"] .ico.mono, :root[data-theme="win95"] .ico.mono,
+:root[data-theme="retro"] .ico.tint, :root[data-theme="win95"] .ico.tint { font-size: 2.6rem; font-weight: 700; box-shadow: 0.3rem 0.3rem 0 var(--ink); }
+:root[data-theme="retro"] .ico svg, :root[data-theme="win95"] .ico svg { width: 2.8rem; height: 2.8rem; }
+:root[data-theme="retro"] .row.is-focus .ico.mono, :root[data-theme="win95"] .row.is-focus .ico.mono,
+:root[data-theme="retro"] .row.is-focus .ico.tint, :root[data-theme="win95"] .row.is-focus .ico.tint { box-shadow: 0.3rem 0.3rem 0 var(--ink); }
+
+/* HDMI: chunky keys with hard shadows that press in */
+:root[data-theme="retro"] .tile, :root[data-theme="win95"] .tile { box-sizing: border-box; border: 0.4rem solid var(--ink); border-radius: 0.8rem; background: var(--tile); font-size: 4.6rem; font-weight: 700; box-shadow: 0.6rem 0.6rem 0 var(--ink); }
+:root[data-theme="retro"] .tile.is-focus, :root[data-theme="win95"] .tile.is-focus { background: var(--sel); border-style: dashed; }
+:root[data-theme="retro"] .col.is-active .tile.is-focus, :root[data-theme="win95"] .col.is-active .tile.is-focus { background: var(--focus); border-style: solid; transform: translate(0.3rem, 0.3rem); box-shadow: 0.3rem 0.3rem 0 var(--ink); }
+
+/* top bar */
+:root[data-theme="retro"] .gauge, :root[data-theme="win95"] .gauge { border-radius: 50%; background: var(--panel); box-shadow: 0 0 0 0.3rem var(--ink), 0.6rem 0.6rem 0 0.3rem var(--ink); color: var(--ink); }
+:root[data-theme="retro"] .ring .plate, :root[data-theme="win95"] .ring .plate { fill: none; }
+:root[data-theme="retro"] .ring .track, :root[data-theme="win95"] .ring .track { stroke-width: 5; }
+:root[data-theme="retro"] .ring .arc, :root[data-theme="win95"] .ring .arc { stroke-width: 5; stroke-linecap: butt; }
+:root[data-theme="retro"] .btn, :root[data-theme="win95"] .btn { box-sizing: border-box; border: 0.4rem solid var(--ink); border-radius: 0.8rem; background: var(--panel); color: var(--ink); box-shadow: 0.6rem 0.6rem 0 var(--ink); }
+:root[data-theme="retro"] .btn.is-open, :root[data-theme="win95"] .btn.is-open { background: var(--sel); transform: translate(0.3rem, 0.3rem); box-shadow: 0.3rem 0.3rem 0 var(--ink); color: var(--ink); }
+:root[data-theme="retro"] .btn.is-focus, :root[data-theme="win95"] .btn.is-focus { background: var(--focus); color: var(--ink); transform: translate(0.3rem, 0.3rem); box-shadow: 0.3rem 0.3rem 0 var(--ink); }
+:root[data-theme="retro"] #toast, :root[data-theme="win95"] #toast { border: 0.4rem solid var(--ink); border-radius: 0.8rem; background: #ffd36b; color: var(--ink); font-weight: 700; box-shadow: 0.6rem 0.6rem 0 var(--ink); }
+
+/* running apps and customise: windows over the desktop */
+:root[data-theme="retro"] .tray-panel, :root[data-theme="win95"] .tray-panel,
+:root[data-theme="retro"] .cfg-panel, :root[data-theme="win95"] .cfg-panel { overflow: hidden; padding: 0; border: 0.4rem solid var(--ink); border-radius: 1.2rem; background: var(--panel); box-shadow: 1.4rem 1.4rem 0 var(--ink); }
+:root[data-theme="retro"] .tray-list, :root[data-theme="win95"] .tray-list { padding: 3.6rem 3.6rem 1rem; }
+:root[data-theme="retro"] .tray-panel .hint, :root[data-theme="win95"] .tray-panel .hint { margin: 2.4rem 3.6rem 3.6rem; }
+:root[data-theme="retro"] .hint, :root[data-theme="win95"] .hint { color: var(--dim); font-size: 2.4rem; }
+:root[data-theme="retro"] .cfg-panel .hint, :root[data-theme="win95"] .cfg-panel .hint { margin: 2.4rem 3.2rem 2rem; }
+:root[data-theme="retro"] .cfg-list, :root[data-theme="win95"] .cfg-list { margin: 0 2.2rem 3rem 3.2rem; padding-right: 1rem; }
+:root[data-theme="retro"] .rtile, :root[data-theme="win95"] .rtile { box-sizing: border-box; border: 0.4rem solid var(--ink); border-radius: 0.8rem; background: var(--tile); color: var(--ink); box-shadow: 0.6rem 0.6rem 0 var(--ink); }
+:root[data-theme="retro"] .rtile.is-focus, :root[data-theme="win95"] .rtile.is-focus,
+:root[data-theme="retro"] .rtile.is-all.is-focus, :root[data-theme="win95"] .rtile.is-all.is-focus { background: var(--focus); color: var(--ink); font-weight: 700; transform: translate(0.3rem, 0.3rem); box-shadow: 0.3rem 0.3rem 0 var(--ink); border-style: solid; }
+:root[data-theme="retro"] .rtile.is-all, :root[data-theme="win95"] .rtile.is-all { background: transparent; border-style: dashed; box-shadow: none; }
+:root[data-theme="retro"] .rtile .ico, :root[data-theme="win95"] .rtile .ico { border-width: 0.4rem; border-radius: 1rem; }
+:root[data-theme="retro"] .rtile .ico.mono, :root[data-theme="win95"] .rtile .ico.mono { box-shadow: 0.4rem 0.4rem 0 var(--ink); }
+:root[data-theme="retro"] .rempty, :root[data-theme="win95"] .rempty { padding: 2rem 0.4rem; }
+:root[data-theme="retro"] .crow, :root[data-theme="win95"] .crow { box-sizing: border-box; height: 8.4rem; border: 0.3rem solid transparent; border-radius: 0.8rem; font-size: 2.8rem; font-weight: 400; }
+:root[data-theme="retro"] .crow.is-focus, :root[data-theme="win95"] .crow.is-focus { background: var(--focus); border-color: var(--ink); color: var(--ink); font-weight: 700; box-shadow: 0.5rem 0.5rem 0 var(--ink); }
+:root[data-theme="retro"] .csub, :root[data-theme="win95"] .csub { font-size: 2rem; }
+:root[data-theme="retro"] .swatch, :root[data-theme="win95"] .swatch { box-sizing: border-box; width: 5rem; height: 5rem; border: 0.3rem solid var(--ink); border-radius: 0.8rem; }
+
+/* power menu: a plain pop-up menu */
+:root[data-theme="retro"] .menu, :root[data-theme="win95"] .menu { padding: 1rem; border: 0.4rem solid var(--ink); border-radius: 0.8rem; background: var(--panel); box-shadow: 0.9rem 0.9rem 0 var(--ink); }
+:root[data-theme="retro"] .mrow, :root[data-theme="win95"] .mrow { box-sizing: border-box; height: 7.6rem; border: 0.3rem solid transparent; border-radius: 0.6rem; font-size: 2.8rem; color: var(--ink); }
+:root[data-theme="retro"] .mrow.is-focus, :root[data-theme="win95"] .mrow.is-focus { background: var(--focus); border-color: var(--ink); color: var(--ink); font-weight: 700; }
+:root[data-theme="retro"] .mrow.is-armed, :root[data-theme="win95"] .mrow.is-armed { background: var(--hot); border-color: var(--ink); color: var(--ink); }
+:root[data-theme="retro"] .rtile .ico, :root[data-theme="win95"] .rtile .ico { width: 11.2rem; height: 11.2rem; }
+:root[data-theme="retro"] .rtile .ico.mono, :root[data-theme="win95"] .rtile .ico.mono { font-size: 5.4rem; }
+:root[data-theme="retro"] .rtile .ico svg, :root[data-theme="win95"] .rtile .ico svg { width: 6rem; height: 6rem; }
+
+
+/* ---------- Desktop: overrides on top of the shared Retro rules ---------- */
+:root[data-theme="win95"] .col,
+:root[data-theme="win95"] .tray-panel,
+:root[data-theme="win95"] .cfg-panel { border-radius: 0.4rem; box-shadow: inset 0.4rem 0.4rem 0 #ffffff, inset -0.4rem -0.4rem 0 #7b7b7b, 0.9rem 0.9rem 0 rgba(0,0,0,0.8); }
+:root[data-theme="win95"] #col-apps::after { background: linear-gradient(to bottom, rgba(192,192,192,0), #c0c0c0); }
+/* title bars: navy on the window you are in, grey on the others */
+:root[data-theme="win95"] #col-apps h2, :root[data-theme="win95"] #col-inputs h2, :root[data-theme="win95"] #col-settings h2 { background: #808080; color: #d4d4d4; }
+:root[data-theme="win95"] .col.is-active h2 { background: #000080; color: #ffffff; }
+:root[data-theme="win95"] .tray-panel h2, :root[data-theme="win95"] .cfg-panel h2 { background: #000080; color: #ffffff; }
+:root[data-theme="win95"] .col h2::after, :root[data-theme="win95"] .tray-panel h2::after, :root[data-theme="win95"] .cfg-panel h2::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 34'%3E%3Crect x='1.5' y='1.5' width='107' height='31' rx='3' fill='%23c0c0c0' stroke='%23000' stroke-width='3'/%3E%3Cpath d='M37 2v30M73 2v30M11 24h17M84 9l15 16M99 9 84 25' stroke='%23000' stroke-width='3' fill='none' stroke-linecap='square'/%3E%3Crect x='47' y='9' width='16' height='15' fill='none' stroke='%23000' stroke-width='3'/%3E%3C/svg%3E"); }
+:root[data-theme="win95"] .group-label { color: var(--dim); }
+/* selection: navy with white text; the dotted focus box where you left */
+:root[data-theme="win95"] .row.is-focus { border-style: dotted; }
+:root[data-theme="win95"] .col.is-active .row.is-focus,
+:root[data-theme="win95"] .crow.is-focus,
+:root[data-theme="win95"] .mrow.is-focus { color: #ffffff; box-shadow: none; }
+:root[data-theme="win95"] .ico { border-radius: 0.3rem; }
+:root[data-theme="win95"] .ico.mono, :root[data-theme="win95"] .ico.tint { box-shadow: 0.3rem 0.3rem 0 rgba(0,0,0,0.55); }
+:root[data-theme="win95"] .row.is-focus .ico.mono, :root[data-theme="win95"] .row.is-focus .ico.tint { box-shadow: 0.3rem 0.3rem 0 rgba(0,0,0,0.55); }
+/* keys: bevelled, sink when pressed */
+:root[data-theme="win95"] .tile, :root[data-theme="win95"] .btn, :root[data-theme="win95"] .rtile { border-radius: 0.3rem; box-shadow: inset 0.3rem 0.3rem 0 #ffffff, inset -0.3rem -0.3rem 0 #7b7b7b, 0.5rem 0.5rem 0 rgba(0,0,0,0.8); }
+:root[data-theme="win95"] .tile.is-focus { border-style: dotted; background: var(--tile); }
+:root[data-theme="win95"] .col.is-active .tile.is-focus,
+:root[data-theme="win95"] .btn.is-focus,
+:root[data-theme="win95"] .rtile.is-focus,
+:root[data-theme="win95"] .rtile.is-all.is-focus { background: #000080; color: #ffffff; box-shadow: inset 0.3rem 0.3rem 0 #7b7b7b, inset -0.3rem -0.3rem 0 #ffffff; transform: translate(0.3rem, 0.3rem); }
+:root[data-theme="win95"] .btn.is-open { background: #a8a8a8; box-shadow: inset 0.3rem 0.3rem 0 #7b7b7b, inset -0.3rem -0.3rem 0 #ffffff; }
+:root[data-theme="win95"] .rtile.is-all { border-style: dotted; box-shadow: none; }
+:root[data-theme="win95"] .gauge { box-shadow: 0 0 0 0.3rem #000, 0.6rem 0.6rem 0 0.3rem rgba(0,0,0,0.8); }
+:root[data-theme="win95"] .swatch { border-radius: 0.3rem; }
+/* tooltip yellow for messages */
+:root[data-theme="win95"] #toast { border-radius: 0; background: #ffffe1; box-shadow: 0.6rem 0.6rem 0 rgba(0,0,0,0.8); }
+:root[data-theme="win95"] .menu { border-radius: 0.3rem; box-shadow: inset 0.3rem 0.3rem 0 #ffffff, inset -0.3rem -0.3rem 0 #7b7b7b, 0.8rem 0.8rem 0 rgba(0,0,0,0.8); }
+:root[data-theme="win95"] .mrow { border-radius: 0; }
+:root[data-theme="win95"] .mrow.is-armed { background: var(--hot); color: #ffffff; }
+
+
+/* ---------- pixel icons: hidden everywhere except the Desktop theme ---------- */
+.ic-95 { display: none; }
+:root[data-theme="win95"] .ic-std { display: none; }
+:root[data-theme="win95"] .ic-95 { display: block; }
+/* the pixel icons are complete pictures, so their tiles lose the frame */
+:root[data-theme="win95"] .ico.tint { border: 0; background: transparent; box-shadow: none; }
+:root[data-theme="win95"] .row.is-focus .ico.tint { box-shadow: none; }
+:root[data-theme="win95"] .ico.tint svg.ic-95 { width: 4.8rem; height: 4.8rem; }
+:root[data-theme="win95"] .btn svg.ic-95 { width: 4.8rem; height: 4.8rem; }
+:root[data-theme="win95"] .gico svg.ic-95 { width: 3.2rem; height: 3.2rem; }
+:root[data-theme="win95"] .mrow svg.ic-95 { width: 4.8rem; height: 4.8rem; }
+:root[data-theme="win95"] .cright svg.ic-95 { width: 3.2rem; height: 3.2rem; }
+:root[data-theme="win95"] .rtile .ico svg.ic-95 { width: 6.4rem; height: 6.4rem; }
+/* VT323 is thin and single-weight: thickened with a text stroke, never faux-bolded; no ligatures */
+:root[data-theme="win95"] body { font-variant-ligatures: none; }
+:root[data-theme="win95"] .row { font-size: 4.4rem; }
+:root[data-theme="win95"] .col h2, :root[data-theme="win95"] .tray-panel h2, :root[data-theme="win95"] .cfg-panel h2 { font-size: 4.4rem; }
+:root[data-theme="win95"] .crow, :root[data-theme="win95"] .mrow { font-size: 4.4rem; }
+:root[data-theme="win95"] .csub, :root[data-theme="win95"] .hint, :root[data-theme="win95"] .rlabel, :root[data-theme="win95"] .group-label { font-size: 3.2rem; }
+:root[data-theme="win95"] .tile { font-size: 6.4rem; }
+:root[data-theme="win95"] .ico.mono { font-size: 4.4rem; }
+:root[data-theme="win95"] .rtile .ico.mono { font-size: 6.4rem; }
+/* no faux bold on selection: the navy bar carries it */
+:root[data-theme="win95"] .col.is-active .row.is-focus, :root[data-theme="win95"] .crow.is-focus, :root[data-theme="win95"] .mrow.is-focus, :root[data-theme="win95"] .rtile.is-focus { font-weight: 400; }
+
+:root[data-theme="win95"] body, :root[data-theme="win95"] .row, :root[data-theme="win95"] .crow, :root[data-theme="win95"] .mrow { font-weight: 400; }
+:root[data-theme="win95"] * { font-weight: 400 !important; }
+:root[data-theme="win95"] body { -webkit-text-stroke: 0.1rem currentColor; }
+
+/* =====================================================================
+   Satellite: an early-2000s set-top box planner. Every row is a set of
+   separate blue cells, the row you are on is a bright yellow bar, a strip of
+   tabs heads each column and the colour keys sit along the bottom.
+   ===================================================================== */
+:root[data-theme="satellite"] body { background: linear-gradient(to bottom, #0b2566 0%, #081a4a 45%, #06143a 100%); }
+:root[data-theme="satellite"] .board { gap: 1.6rem; padding: 14.4rem 7.2rem 11.2rem; }
+:root[data-theme="satellite"] .col { padding: 0; border-radius: 0; background: transparent; }
+:root[data-theme="satellite"] .col.hug { padding-bottom: 0; }
+:root[data-theme="satellite"] #col-apps::after { height: 8rem; background: linear-gradient(to bottom, rgba(7,23,63,0), #07173f 85%); }
+
+/* column titles: a tab strip */
+:root[data-theme="satellite"] .col h2 {
+  margin: 0 0 0.6rem 0;
+  padding: 0 2rem;
+  height: 5.6rem;
+  line-height: 5.6rem;
+  border-radius: 0.8rem 0.8rem 0 0;
+  background: linear-gradient(to bottom, #2a5cb8, #1a4290);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--dim);
+}
+:root[data-theme="satellite"] .col.is-active h2 {
+  background: linear-gradient(to bottom, #4b86e6, #2a5cc0);
+  color: #fff;
+}
+:root[data-theme="satellite"] .group-label { margin: 0.6rem 0 0.8rem 0.4rem; font-size: 2.4rem; font-weight: 700; }
+
+/* rows: blue cells with a lit top edge, tightly stacked */
+:root[data-theme="satellite"] .row {
+  height: 6.4rem;
+  margin-bottom: 0.4rem;
+  padding: 0 1.6rem;
+  gap: 1.6rem;
+  border-radius: 0.4rem;
+  background: linear-gradient(to bottom, #2758b2, #1a4592);
+  box-shadow: inset 0 0.2rem 0 rgba(255,255,255,0.14);
+  font-size: 2.8rem;
+  line-height: 6.4rem;
+}
+:root[data-theme="satellite"] .row.is-note { background: transparent; box-shadow: none; height: auto; line-height: 1.4; }
+:root[data-theme="satellite"] .row.is-focus { background: linear-gradient(to bottom, #4a86e8, #3166c8); color: #fff; }
+:root[data-theme="satellite"] .col.is-active .row.is-focus {
+  background: linear-gradient(to bottom, #ffe066, #ffc400);
+  box-shadow: inset 0 0.2rem 0 rgba(255,255,255,0.5);
+  color: var(--focus-ink);
+  font-weight: 700;
+}
+:root[data-theme="satellite"] .ico { width: 4.4rem; height: 4.4rem; border-radius: 0.4rem; }
+:root[data-theme="satellite"] .ico svg { width: 2.8rem; height: 2.8rem; }
+:root[data-theme="satellite"] .ico.mono { background: #fff; color: var(--ink); font-size: 2.4rem; }
+:root[data-theme="satellite"] .ico.tint { background: transparent; color: currentColor; }
+:root[data-theme="satellite"] .row.is-focus .ico.mono,
+:root[data-theme="satellite"] .row.is-focus .ico.tint { box-shadow: none; }
+:root[data-theme="satellite"] .col.is-active .row.is-focus .ico.mono { background: var(--focus-ink); color: #fff; }
+
+/* inputs: four cells */
+:root[data-theme="satellite"] .list.tiles { gap: 0.4rem; }
+:root[data-theme="satellite"] .tile { height: auto; aspect-ratio: 1.3; padding: 0; line-height: 1; font-size: 4.4rem; font-weight: 700; }
+:root[data-theme="satellite"] .col.is-active .tile.is-focus { font-weight: 700; }
+
+/* top bar: a dark band with a light rule under it */
+:root[data-theme="satellite"] .bar {
+  height: 11.2rem;
+  padding: 2rem 7.2rem 0;
+  background: linear-gradient(to bottom, #04102e, #0a2058);
+  box-shadow: inset 0 -0.3rem 0 #3a72d4;
+}
+:root[data-theme="satellite"] .gauge, :root[data-theme="satellite"] .btn { width: 6.8rem; height: 6.8rem; }
+:root[data-theme="satellite"] .ring .plate { fill: none; }
+:root[data-theme="satellite"] .gauge { color: #fff; }
+:root[data-theme="satellite"] .btn { border-radius: 0.6rem; background: linear-gradient(to bottom, #2758b2, #1a4592); color: #fff; }
+:root[data-theme="satellite"] .btn.is-open { background: linear-gradient(to bottom, #4a86e8, #3166c8); }
+:root[data-theme="satellite"] .btn.is-focus { background: linear-gradient(to bottom, #ffe066, #ffc400); color: var(--focus-ink); }
+
+/* colour keys along the bottom */
+:root[data-theme="satellite"] .keys {
+  position: fixed;
+  left: 7.2rem;
+  right: 7.2rem;
+  bottom: 3.6rem;
+  display: flex;
+  align-items: center;
+  gap: 5.6rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+:root[data-theme="satellite"] .key { display: flex; align-items: center; gap: 1.2rem; }
+:root[data-theme="satellite"] .key::before {
+  content: "";
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  box-shadow: inset 0 0.3rem 0 rgba(255,255,255,0.35);
+}
+:root[data-theme="satellite"] .key-red::before { background: #e8322b; }
+:root[data-theme="satellite"] .key-green::before { background: #2fb34a; }
+:root[data-theme="satellite"] .key-note { margin-left: auto; font-weight: 400; color: var(--dim); }
+:root[data-theme="satellite"] #toast { border-radius: 0.6rem; background: var(--focus); color: var(--focus-ink); font-weight: 700; }
+
+/* running apps and customise: a navy box with a tab-strip title */
+:root[data-theme="satellite"] .tray-panel,
+:root[data-theme="satellite"] .cfg-panel { border-radius: 0.8rem; background: #0a1f58; box-shadow: 0 0 0 0.3rem #3a72d4; padding-top: 0; overflow: hidden; }
+:root[data-theme="satellite"] .tray-panel h2,
+:root[data-theme="satellite"] .cfg-panel h2 {
+  margin: 0 -5.6rem 3.2rem;
+  padding: 0 5.6rem;
+  height: 7.2rem;
+  line-height: 7.2rem;
+  background: linear-gradient(to bottom, #4b86e6, #2a5cc0);
+  font-size: 3.4rem;
+}
+:root[data-theme="satellite"] .cfg-panel h2 { margin: 0 -4rem 2rem; padding: 0 4rem; }
+:root[data-theme="satellite"] .rtile { border-radius: 0.4rem; background: linear-gradient(to bottom, #2758b2, #1a4592); }
+:root[data-theme="satellite"] .rtile .ico { border-radius: 0.4rem; width: 11.2rem; height: 11.2rem; }
+:root[data-theme="satellite"] .rtile .ico svg { width: 6rem; height: 6rem; }
+:root[data-theme="satellite"] .rtile.is-focus,
+:root[data-theme="satellite"] .rtile.is-all.is-focus { background: linear-gradient(to bottom, #ffe066, #ffc400); color: var(--focus-ink); box-shadow: none; }
+:root[data-theme="satellite"] .rtile.is-focus .ico.mono { background: var(--focus-ink); color: #fff; }
+:root[data-theme="satellite"] .rtile.is-all { background: transparent; box-shadow: inset 0 0 0 0.3rem #3a72d4; }
+:root[data-theme="satellite"] .crow { height: 7.2rem; margin-bottom: 0.4rem; border-radius: 0.4rem; background: linear-gradient(to bottom, #2758b2, #1a4592); font-size: 2.8rem; }
+:root[data-theme="satellite"] .crow.is-focus { background: linear-gradient(to bottom, #ffe066, #ffc400); color: var(--focus-ink); }
+:root[data-theme="satellite"] .crow.is-focus .ico.mono { background: var(--focus-ink); color: #fff; }
+:root[data-theme="satellite"] .swatch { border-radius: 0.4rem; box-shadow: 0 0 0 0.2rem #fff; }
+
+/* power menu: a stack of cells */
+:root[data-theme="satellite"] .menu { top: 11.2rem; right: 7.2rem; border-radius: 0.6rem; padding: 0.6rem; background: #0a1f58; box-shadow: 0 0 0 0.3rem #3a72d4, 0 1.6rem 4rem rgba(0,0,0,0.5); }
+:root[data-theme="satellite"] .mrow { height: 7.2rem; margin-bottom: 0.4rem; border-radius: 0.4rem; background: linear-gradient(to bottom, #2758b2, #1a4592); font-size: 2.8rem; color: #fff; }
+:root[data-theme="satellite"] .mrow:last-child { margin-bottom: 0; }
+:root[data-theme="satellite"] .mrow.is-focus { background: linear-gradient(to bottom, #ffe066, #ffc400); color: var(--focus-ink); }
+:root[data-theme="satellite"] .mrow.is-armed { background: linear-gradient(to bottom, #ff5a4f, #d8261f); color: #fff; }
